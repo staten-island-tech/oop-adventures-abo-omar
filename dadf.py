@@ -31,6 +31,8 @@ class Character:
 
 
 
+
+
 class Game:
     def __init__(self):
         self.score = 0
@@ -50,3 +52,16 @@ class Game:
 
         # Set starting room
         self.current_room = room1
+
+        #start game loop  
+        while True:
+            print("\nYou are in the", self.current_room.name)
+            print(self.current_room.description)
+            self.print_items_in_room()
+            self.print_score()
+            #player input
+    action = input ("Enter your action (type 'help' for options'): ")
+
+
+
+
