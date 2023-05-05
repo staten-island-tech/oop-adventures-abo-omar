@@ -59,8 +59,27 @@ class Game:
             print(self.current_room.description)
             self.print_items_in_room()
             self.print_score()
+          
             #player input
     action = input ("Enter your action (type 'help' for options'): ")
 
+        # Parse Player Input
+    if action == 'help' :
+        self.print_help()
+    elif action == 'look' :
+        self.print_room_description()
+    elif action == 'inventory' :
+        self.print_inventory()
+    elif action.startswith('go'):
+        self.go_to_room(action)
+    elif action.startswith('take'):
+        self.take_item(action)
+    elif action.startswith('interact'):
+        self.interacr_with_character(action)
+    elif action == 'quit' :
+        print("Thank you for playing!") 
+ break       
+else:
+print("you broke it habibi thats not good")
 
-ll
+
