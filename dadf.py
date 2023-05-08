@@ -64,6 +64,8 @@ class Game:
     action = input ("Enter your action (type 'help' for options'): ")
 
         # Parse Player Input
+while True:
+    break
     if action == 'help' :
         self.print_help()
     elif action == 'look' :
@@ -78,8 +80,10 @@ class Game:
         self.interacr_with_character(action)
     elif action == 'quit' :
         print("Thank you for playing!") 
+        
         break     
     else:
         print("you broke it habibi thats not good")
+        
 
 
