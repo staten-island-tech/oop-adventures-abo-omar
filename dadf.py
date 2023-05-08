@@ -78,8 +78,8 @@ class Game:
         self.interacr_with_character(action)
     elif action == 'quit' :
         print("Thank you for playing!") 
- break       
-else:
-print("you broke it habibi thats not good")
+        break     
+    else:
+        print("you broke it habibi thats not good")
 
 
