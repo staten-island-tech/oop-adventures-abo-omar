@@ -46,7 +46,8 @@ class Game:
         # Initialize rooms
         room1 = Room("starting room", "its a starting room.", )
         room2 = Room("hallway", "a long dark hallway could contain monsters or bodies who knows .", [Item("british short pistol", "An old british pistol probably left from an expedition during the early 1900s.", 20)])
-        room3 = Room("queens chamber ", "a very dark room seems pretty big you can notice movement in there .", [Item("ancient candle", "its an ancient candle .", 2)])
+        room3 = Room("queens chamber ", "a very dark room seems pretty big you can notice movement in there .", [Item("ancient candle", "its an ancient candle .", 2)]  [Item("psychte", "its a psychte .", 25)])
+        room4 = Room("King tuts grave", "its king tuts grave but unlike his queen this guy is maybe dead but his riches aint .", [Item("Khanjar", "its a curved arab sword .", 25)] ,  [Item("Gold", "you find them riches .", 20)])
         room2.items.append(Character("a mummy", "he came back from the dead to just kill you.", -5))
         room3.items.append(Character("queen ice spice", "you thought she was feeling you????.", -20))
 
