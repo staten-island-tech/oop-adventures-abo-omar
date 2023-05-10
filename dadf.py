@@ -70,6 +70,7 @@ class Game:
             elif action.startswith('go'):
                 self.go_to_room(action)
             elif action.startswith('take'):
+                inventory.append
                 self.take_item(action)
             elif action.startswith('interact'):
                 self.interact_with_character(action)
