@@ -51,7 +51,7 @@ class Game:
         room2.items.append(Character("a mummy", "he came back from the dead to just kill you.", -5))
         room3.items.append(Character("queen ice spice", "you thought she was feeling you????.", -20))
 
-        # Set starting room
+        
         self.current_room = room1
 
         #start game loop  
@@ -60,28 +60,21 @@ class Game:
             print(self.current_room.description)
             self.print_items_in_room()
             self.print_score()
-          
-            #player input
-    action = input ("Enter your action (type 'help' for options'): ")
-
-        # Parse Player Input
-    while True:
-        if action == 'help' :
-            self.print_help()
-        elif action == 'look' :
-            self.print_room_description()
-        elif action == 'inventory' :
-          self.print_inventory()
-        elif action.startswith('go'):
-         self.go_to_room(action)
-        elif action.startswith('take'):
-            self.take_item(action)
-        elif action.startswith('interact'):
-            self.interact_with_character(action)
-        elif action == 'quit' :
-            print("Thank you for playing!")      
-        else:
-         print("you broke it habibi thats not good")
+            action = input ("Enter your action (type 'help' for options'): ") 
+            if action == 'help' :
+                print("ThaTS OK , there are multiple commands 1. look 2. inventory 3. go 4. take 5. interact 6. quit")
+            elif action == 'look' :
+                print( self.current_room.description)
+            elif action == 'inventory' :
+                self.print_inventory()
+            elif action.startswith('go'):
+                self.go_to_room(action)
+            elif action.startswith('take'):
+                self.take_item(action)
+            elif action.startswith('interact'):
+                self.interact_with_character(action)
+            elif action == 'quit' :
+             print("Thank you for playing!")      
+            else:
+                print("you broke it habibi thats not good")
         
-
-
