@@ -82,7 +82,7 @@ class Game:
             elif action.startswith('interact'):
                 print(self.current_room.character)
             elif action == 'quit' :
-             print("Thank you for playing!")      
+             print("as time goes by and by and you cant find your exit  you decide to give up on life and wait until sarvation or the monsters get you in the end you died 2 years later your body is found heavily deformed but somehow your flesh didnt rot or decay. how??? that is a mystery for another day ")      
             else:
                 print("you broke it habibi thats not good")
 
