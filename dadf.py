@@ -48,6 +48,7 @@ class Game:
         room2 = Room("hallway", "a long dark hallway could contain monsters or bodies who knows .", [Item("british short pistol", "An old british pistol probably left from an expedition during the early 1900s.", 20)])
         room3 = Room("queens chamber ", "a very dark room seems pretty big you can notice movement in there .", [Item("ancient candle", "its an ancient candle .", 2)]  [Item("psychte", "its a psychte .", 25)], [Character("queen ice spice", "you thought she was feeling you????.", -20)])
         room4 = Room("King tuts grave", "its king tuts grave but unlike his queen this guy is maybe dead but his riches aint .", [Item("Khanjar", "its a curved arab sword .", 25)] ,  [Item("Gold", "you find them riches .", 20)])
+        room5 = Room("omars proof of work room","its a room to show omars proof of work. good job omar"[Item("Omars mental abiility ", " congratulations you can think like a 5 year old now hope you like it .", 1)])
         room2.items.append(Character("a mummy", "he came back from the dead to just kill you.", -5))
         room3.items.append(Character("queen ice spice", "you thought she was feeling you????.", -20))
 
@@ -81,6 +82,17 @@ class Game:
                 inventory.append (self.current_room.items)
             elif action.startswith('interact'):
                 print(self.current_room.character)
+            elif action.startswith('room6'):
+                con = input ("in your face you see a long hallway that seems to never end maybe it goes in circles who knows ")
+                if con == "no":
+                    print("as time goes by and by and you cant find your exit  you decide to give up on life and wait until sarvation or the monsters get you in the end you died 2 years later your body is found heavily deformed but somehow your flesh didnt rot or decay. how??? that is a mystery for another day ")
+
+                elif con == "yes":
+                    y = input ( "you keep on going and going for god knows how long you lost track of time is it days months hours or minutes you dont know it seems like your going in cirlces do you contunie ")        
+                    if y == "no":
+                        print("as time goes by and by and you cant find your exit  you decide to give up on life and wait until sarvation or the monsters get you in the end you died 2 years later your body is found heavily deformed but somehow your flesh didnt rot or decay. how??? that is a mystery for another day ")
+                    elif y == "yes":
+                        z = input("in yyour neverendign journey out of no where you deide your are tired ")
             elif action == 'quit' :
              print("as time goes by and by and you cant find your exit  you decide to give up on life and wait until sarvation or the monsters get you in the end you died 2 years later your body is found heavily deformed but somehow your flesh didnt rot or decay. how??? that is a mystery for another day ")      
             else:
