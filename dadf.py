@@ -65,7 +65,7 @@ class Game:
             print(self.score)
             action = input ("Enter your action (type 'help' for options'): ") 
             if action == 'help' :
-                print("ThaTS OK , there are multiple commands 1. look 2. inventory 3. go 4. take 5. interact 6. quit")
+                print("ThaTS OK , there are multiple commands 1. look 2. inventory 3. to go to any room type the room number  4. take 5. interact 6. quit")
             elif action == 'look' :
                 print( self.current_room.description)
             elif action == 'inventory' :
@@ -84,16 +84,24 @@ class Game:
                 print(self.current_room.character)
             elif action.startswith('room6'):
                 con = input ("in your face you see a long hallway that seems to never end maybe it goes in circles who knows ")
-                if con == "no":
+                if con.startswith('no'):
                     print("as time goes by and by and you cant find your exit  you decide to give up on life and wait until sarvation or the monsters get you in the end you died 2 years later your body is found heavily deformed but somehow your flesh didnt rot or decay. how??? that is a mystery for another day ")
 
-                elif con == "yes":
+                elif con.startswith('yes'):
                     y = input ( "you keep on going and going for god knows how long you lost track of time is it days months hours or minutes you dont know it seems like your going in cirlces do you contunie ")        
-                    if y == "no":
+                    if y.startswith('no'):
                         print("as time goes by and by and you cant find your exit  you decide to give up on life and wait until sarvation or the monsters get you in the end you died 2 years later your body is found heavily deformed but somehow your flesh didnt rot or decay. how??? that is a mystery for another day ")
-                    elif y == "yes":
-                        z = input("in yyour neverendign journey out of no where you deide your are tired ")
-            elif action == 'quit' :
+                    elif y.startswith('yes'):
+                        z = input("in your never ending journey and seeming for going in circles for god knows how long you lost track of the concept of time you decide your are tired and decide wether or not you should rest do you keep going yes or no ")
+                        if z.startswith('yes'):
+                            print('in the end you decide to keep going but you felt more and more tired by the second then out of nowhere you see a light shinning on you telling you come join me you were hallucinating  in the end you collapsed and died your body was never found to this day ')
+                        elif z.startswith('no'):
+                            x = input('you decide to find a place to rest and you keep going and you get very tired do you keep looking or just sit on the floor ')
+                            if x.startswith('keep looking'):
+                                print('')
+
+
+            elif action.startswith('quit') :
              print("as time goes by and by and you cant find your exit  you decide to give up on life and wait until sarvation or the monsters get you in the end you died 2 years later your body is found heavily deformed but somehow your flesh didnt rot or decay. how??? that is a mystery for another day ")      
             else:
                 print("you broke it habibi thats not good")
