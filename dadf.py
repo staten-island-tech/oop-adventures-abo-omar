@@ -98,7 +98,9 @@ class Game:
                         elif z.startswith('no'):
                             x = input('you decide to find a place to rest and you keep going and you get very tired do you keep looking or just sit on the floor ')
                             if x.startswith('keep looking'):
-                                print('')
+                                print('well you keep going being the germaphobe you are now and disgusted on the flor ou keep going good job in the end you pass out and die how eciting')
+                            elif x.startswith('sit') :
+                                L = input('you decide to sit down at the wall  an drest for a bit butt as sit down and put your back on the wall you felt the  wall move a bit and then  ')
 
 
             elif action.startswith('quit') :
