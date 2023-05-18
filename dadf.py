@@ -100,7 +100,10 @@ class Game:
                             if x.startswith('keep looking'):
                                 print('well you keep going being the germaphobe you are now and disgusted on the flor ou keep going good job in the end you pass out and die how eciting')
                             elif x.startswith('sit') :
-                                L = input('you decide to sit down at the wall  an drest for a bit butt as sit down and put your back on the wall you felt the  wall move a bit and then  ')
+                                L = input('you decide to sit down at the wall  an drest for a bit butt as sit down and put your back on the wall you felt the  wall move a bit and then you feel the ground shake what do you do investiagte or keep resting  ')
+                                if L.startswith('keep resting'):
+                                    T = input('you decide to keep resting and to contunie later but while resting you fall asleep and after god knows how long you get woken up out of your sleep by a very loud screech that filled the halls you jump up and you hear it  get closer and closer what do you do do you run or investigate the sound  ')
+                                    if T.startswith('run'):
 
 
             elif action.startswith('quit') :
