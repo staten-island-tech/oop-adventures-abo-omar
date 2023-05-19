@@ -104,6 +104,9 @@ class Game:
                                 if L.startswith('keep resting'):
                                     T = input('you decide to keep resting and to contunie later but while resting you fall asleep and after god knows how long you get woken up out of your sleep by a very loud screech that filled the halls you jump up and you hear it  get closer and closer what do you do do you run or investigate the sound  ')
                                     if T.startswith('run'):
+                                        P = input('you start running as fast as you can and the voice is still getting louder but after a few moments its starts fading away and you think its gone now so you stand for a bit and take your breath what do you do next contunie resting or keep exploring')
+                                        if P.startswith('Keep exploring'):
+                                            print('you decide to keep going and the adrenaline wears and you collapse on the floor and never wake up')
 
 
             elif action.startswith('quit') :
