@@ -106,7 +106,13 @@ class Game:
                                     if T.startswith('run'):
                                         P = input('you start running as fast as you can and the voice is still getting louder but after a few moments its starts fading away and you think its gone now so you stand for a bit and take your breath what do you do next contunie resting or keep exploring')
                                         if P.startswith('Keep exploring'):
-                                            print('you decide to keep going and the adrenaline wears and you collapse on the floor and never wake up')
+                                            print('you decide to keep going and the adrenaline wears and you collapse on the floor and never wake up boo hoo you died what did you expect when you overstress for a tired body')
+                                        elif P.startswith('continue resting'):
+                                            print('you decide to sit down and keep ressting and then you see a light you can escape you finally can getout as you approach the light you have a warm feeling in your heart and you get happier and happier until it all turns to black  ')
+                                    elif T.startswith('investigate'):
+                                        Q = input('you decide to get up and investigate and then you found a new room never seen before  you find the screching noise to be a strong flow of air  what do you do start diiging a hole out of where the air is coming out of or find a tool to help you with it ')
+                                        if Q.startswith('keep diging'):
+                                            print('')
 
 
             elif action.startswith('quit') :
