@@ -208,8 +208,17 @@ class Game:
 
                                                 print('you decide to take the shove and you start digging then after a few rounds the shovl snaps in half and venemous spiders start crawling out of it guess it is a bad day to have arachnaphobia ')
 
-                                            elif U.startswith('bone')     
+                                            elif U.startswith('bone'):
+                                               
+                                                print('you pick up to bone and start smashing a hole where the air is and it gets bigger and bigger then you notice scorpions crawling out they dont attack you tho then you hear the roof crack and next you know everything turns black your body was found a day later by locals due yo yhem noticing a huge hole in the sand near the pyramids your bdy was crushed in the procces though') 
 
+                                elif L.startswith('investigate'):
+                                    
+                                    B = input('you decide to get up and ivestigate and in it you find a hidden room that you uncovered by accident you go in it and you see light yay your saved now do you dig a hole with your hands or look for a tool')
+
+                                    if B.startswith('hands'):
+
+                                        print('')
             elif action.startswith('quit') :
              
              print("as time goes by and by and you cant find your exit  you decide to give up on life and wait until sarvation or the monsters get you in the end you died 2 years later your body is found heavily deformed but somehow your flesh didnt rot or decay. how??? that is a mystery for another day ")      
