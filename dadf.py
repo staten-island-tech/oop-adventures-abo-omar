@@ -218,7 +218,11 @@ class Game:
 
                                     if B.startswith('hands'):
 
-                                        print('')
+                                        M = input(' you decide to go in as quikly as possible and dig a hole out of your hands and your jand gets bigger and bigger you start crawling out and as you leave everything collapses on your foot what do you do try to cut it out or scream for help')
+
+                                        if M.startswith('scream'):
+                                            
+                                            print(' youu try to scream for help your finally out now but then after a few minutes') 
             elif action.startswith('quit') :
              
              print("as time goes by and by and you cant find your exit  you decide to give up on life and wait until sarvation or the monsters get you in the end you died 2 years later your body is found heavily deformed but somehow your flesh didnt rot or decay. how??? that is a mystery for another day ")      
