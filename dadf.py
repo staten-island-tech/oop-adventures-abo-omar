@@ -1,6 +1,6 @@
 class Room:
     
-    def __init__(self, name, description, items=None, character=None, ):
+    def __init__(self, name, description, items=None, Character=None, ):
         
         self.name = name
         
@@ -55,15 +55,15 @@ class Game:
    
     def __init__(self):
        
-        self.score = 0
+        score=[0]
         
-        self.current_room = None
+        self.current_room=None
 
     def start(self):
         
         print("welcome to the pyramid of giza habibi ")
        
-        self.setup_game()
+        
 
     
     def setup_game(self):
@@ -74,21 +74,22 @@ class Game:
         
         room2 = Room("hallway", "a long dark hallway could contain monsters or bodies who knows .", [Item("british short pistol", "An old british pistol probably left from an expedition during the early 1900s.", 20)])
        
-        room3 = Room("queens chamber ", "a very dark room seems pretty big you can notice movement in there .", [Item("ancient candle", "its an ancient candle .", 2)]  [Item("psychte", "its a psychte .", 25)], [Character("queen ice spice", "you thought she was feeling you????.", -20)])
+        room3 = Room("queens chamber ", "a very dark room seems pretty big you can notice movement in there .", [Item("ancient candle", "its an ancient candle .", 2)] , [Item("psychte", "its a psychte .", 25)], )
        
-        room4 = Room("King tuts grave", "its king tuts grave but unlike his queen this guy is maybe dead but his riches aint .", [Item("Khanjar", "its a curved arab sword .", 25)] ,  [Item("Gold", "you find them riches .", 20)])
+        room4 = Room("King tuts grave", "its king tuts grave but unlike his queen this guy is maybe dead but his riches aint .", [Item("Khanjar", "its a curved arab sword .", 25)] ,  [Item("Gold", "you fou  nd them riches .", 20)])
         
-        room5 = Room("omars proof of work room","its a room to show omars proof of work. good job omar"[Item("Omars mental abiility ", " congratulations you can think like a 5 year old now hope you like it .", 1)])
+        room5 = Room("omars proof of work room","its a room to show omars proof of work. good job omar",[Item("Omars mental abiility ", " congratulations you can think like a 5 year old now hope you like it .", 1)])
        
         room2.items.append(Character("a mummy", "he came back from the dead to just kill you.", -5))
        
         room3.items.append(Character("queen ice spice", "you thought she was feeling you????.", -20))
 
         
-        self.current_room = room1
-       
+        self.current_roomcurrent_room = room1
+        pistol=[[Item("british short pistol", "An old british pistol probably left from an expedition during the early 1900s.", 20)]]
         inventory=[]
-       
+        sharpweapons=[[Item("Khanjar", "its a curved arab sword .", 25)] , [Item("psychte", "its a psychte .", 25)]]
+        
         x = 1
 
         #start game loop  
@@ -107,7 +108,7 @@ class Game:
             
             if action == 'help' :
                
-                print("ThaTS OK , there are multiple commands 1. look 2. inventory 3. to go to any room type the room number  4. take 5. interact 6. quit")
+                print("thats OK , there are multiple commands 1. look 2. inventory 3. to go to any room type the room number  4. take 5. interact 6. quit")
            
             elif action == 'look' :
                 
@@ -222,7 +223,25 @@ class Game:
 
                                         if M.startswith('scream'):
                                             
-                                            print(' youu try to scream for help your finally out now but then after a few minutes') 
+                                            if pistol in inventory:
+                                                
+                                                print('you try to scream for help your finally out now but then after a few minutes nothing happens so you stop until you notice movement you get excited but then its gets closer and closer and you see its a large snake but luckily you were quick enough to pull out your pistol and shoot it who knew you would have a use for that pistol you found  but shortly after you hear people screaming and running towards you yay your rescued you get found by the locals and they were able to get an exicvator to get you out next thing you know your all over the news man isnt egypt just great')
+                                            else :
+                                                print(' you try to scream for help your finally out now but then after a few minutes nothing happens so you stop until you notice movement you get excited but then its gets closer and closer and you see its a large snake what did you expect in a dessert') 
+                                        
+                                        elif M.startswith('cut'):
+
+                                            if sharpweapons in inventory :
+
+                                                print('you try to cut your leg off with the sharpweaposn you found in the pyramid and you do succsefully you then run off into civlization where the people see you and approach you when they see what happend they rush to a hospital your saved yay too bad theres no insurance for you in egypt ')
+
+                                            else :
+                                                print('you tried to cut your leg off but nothing really worked  so you just sit there hopelessly and think over your life and the actions you have done what a life you say as you die of a heat stroke buit finnaly at peace with yourself')
+                                            
+
+                                            
+                                            
+
             elif action.startswith('quit') :
              
              print("as time goes by and by and you cant find your exit  you decide to give up on life and wait until sarvation or the monsters get you in the end you died 2 years later your body is found heavily deformed but somehow your flesh didnt rot or decay. how??? that is a mystery for another day ")      
@@ -230,8 +249,12 @@ class Game:
             else:
                
                 print("you broke it habibi thats not good")
+    __init__(0)
+    start(0)
+    setup_game(0)
 
 
 
 
-Game()
+
+
