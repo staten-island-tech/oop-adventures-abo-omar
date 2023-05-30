@@ -99,10 +99,10 @@ class Game:
         print(self.score)
 
         #start game loop  
-        
+       
         while True:
             
-    
+            
             
             action = input ("Enter your action (type 'help' for options'): ") 
             
@@ -277,8 +277,15 @@ class Game:
                                                 print(self.score)
                                                
                                                 quit
+                                        elif B.startswith('look'):
+                                           
+                                            qw = input('you decide to  look for a tool for god knows how long and then you find two things an axe and a mace which do you choose')
+                                          
+                                            if qw.startswith('axe'):
+                                               
+                                                print('you decide to take an axe and make a hole with it and you start choppingg out a rectangle big enough for you and it works you climb out  and start running to a town you see in the distance you make it there and the locals see you and welcome you thank god your saved ')
 
-                                            
+                                            elif    
                                             
 
             elif action.startswith('quit') :
