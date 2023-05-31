@@ -1,12 +1,12 @@
 class Room:
     
-    def __init__(self, name, description, items=None, Character=None, ):
+    def __init__(self, name, description, items=None, tems=None):
         
         self.name = name
         
         self.description = description
        
-        self.items = items or []
+        self.items = items or [] or tems
 
     
     def __str__(self):
@@ -55,7 +55,7 @@ class Game:
    
     def __init__(self):
        
-        self.score = 0
+        self.score = [0]
         
         self.current_room=None
 
@@ -80,15 +80,15 @@ class Game:
         
         room5 = Room("omars proof of work room","its a room to show omars proof of work. good job omar",[Item("Omars mental abiility ", " congratulations you can think like a 5 year old now hope you like it .", 1)])
        
-        room2.items.append(Character("a mummy", "he came back from the dead to just kill you.", -5))
-       
-        room3.items.append(Character("queen ice spice", "you thought she was feeling you????.", -20))
+        
 
         
         self.current_room = room1
         pistol=[[Item("british short pistol", "An old british pistol probably left from an expedition during the early 1900s.", 20)]]
         inventory=[]
         sharpweapons=[[Item("Khanjar", "its a curved arab sword .", 25)] , [Item("psychte", "its a psychte .", 25)]]
+
+        print("welcome to the pyramid of giza habibi ")
         
         print("\nYou are in the", self.current_room.name)
            
@@ -96,19 +96,19 @@ class Game:
            
         print(self.current_room.items)
         
-        print(self.score)
+        print(sum(self.score))
 
         #start game loop  
        
         while True:
             
             
-            
+
             action = input ("Enter your action (type 'help' for options'): ") 
             
             if action == 'help' :
                
-                print("thats OK , there are multiple commands 1. look 2. inventory 3. to go to any room type the room number  4. take 5. interact 6. quit")
+                print("thats OK , there are multiple commands 1. look 2. inventory 3. to go to any room type the room number ex:room3  4. take 5. interact 6. exit()")
            
             elif action == 'look' :
                 
@@ -121,58 +121,113 @@ class Game:
             elif action.startswith('room1'):
                
                 self.current_room = room1
+
+                print('\n you entered the ' , self.current_room.name)
            
             elif action.startswith('room2'):
                
                 self.current_room = room2
+
+                print('\n you entered the ' , self.current_room.name)
             
             elif action.startswith('room3'):
                 
                 self.current_room = room3
+
+                print('\n you entered the ' , self.current_room.name)
             
             elif action.startswith('room4'):
                
                 self.current_room = room4
+
+                print('\n you entered the ' , self.current_room.name)
+
+            elif action.startswith('room5'):
+               
+                self.current_room = room5
+
+                print('\n you entered the ' , self.current_room.name)
+           
            
             elif action.startswith('take'):
+
+                print('\nyou found a/an',self.current_room.items)
                
                 inventory.append (self.current_room.items)
            
             elif action.startswith('interact'):
              
-             if self.current_room == room2:
                 
-                print('you decide to call out who ever is here since you sensed movement and a mummy approaches you and attacks you minus 5 points')
 
-                self.score.__add__('-5')
+                    
            
-            if self.current_room == room2: 
+                if self.current_room == room2: 
              
-             if sharpweapons in inventory:
+                 if [Item("Khanjar", "its a curved arab sword .", 25)] in inventory:
                  
-                 print('you decide to call out who ever is here since you sensed movement and a mummy approaches you and attacks you  but you fight back with youyr weapons and slash it and it dies good job plus 5 points ')
+                        print('you decide to call out who ever is here since you sensed movement and a mummy approaches you and attacks you  but you fight back with youyr weapons and slash it and it dies good job plus 5 points ')
                 
-                 self.score.__add__('5')
+                        self.score.append('5')
+
+                 else:
+                     print('you decide to call out who ever is here since you sensed movement and a mummy approaches you and attacks you minus 5 points')
+
+                     self.score.append('-5')
+
             
-            if self.current_room == room3:
                 
-                print('you decide to see what was moving in the queens chamber you try to find a light source but it doesnt workand then you hear her behind you its queen ice spice before you know she said you thought i was feeling you and immedialty killed you rip')
-
-                print(self.score)
-
-                quit
+                
+                
+                    
+        
             
+                if self.current_room == room3:
+               
+                 if pistol in inventory:
+                   
+                    print('you decide to see what was moving in the queens chamber you try to find a light source but it doesnt workand then you hear her behind you its queen ice spice before you know she said you thought I was feeling you but you were quick to react and shot her guess you werent feeling her eithier +20 points')
+
+                    self.score.append('20')
+                 
+                 else:
+                        print('you decide to see what was moving in the queens chamber you try to find a light source but it doesnt workand then you hear her behind you its queen ice spice before you know she said you thought i was feeling you and she kicks you out -10 points')
+
+                        self.score.append('-10')
+                        
+                        print(self.score)
+
+                        
+
+                    
+                
+                if self.current_room == room1: 
+                    
+                    print('theres no npc here')
+
+                if self.current_room == room4: 
+                    
+                    print('theres no npc here')
+
+                if self.current_room == room5: 
+                    
+                    print('theres no npc here')
+                
             elif action.startswith('room6'):
                
-                con = input ("in your face you see a long hallway that seems to never end maybe it goes in circles who knows ")
+                con = input ("in your face you see a long hallway that seems to never end maybe it goes in circles who knows maybe it leads to an exit  do you enter  (answer should be yes or no)")
                 
                 if con.startswith('no'):
                    
+                    
                     print("as time goes by and by and you cant find your exit  you decide to give up on life and wait until sarvation or the monsters get you in the end you died 2 years later your body is found heavily deformed but somehow your flesh didnt rot or decay. how??? that is a mystery for another day ")
 
+                    print(sum(self.score))
+
+                    exit()
+                
                 elif con.startswith('yes'):
 
-                    y = input ( "you keep on going and going for god knows how long you lost track of time is it days months hours or minutes you dont know it seems like your going in cirlces do you contunie ")        
+                    y = input ( "you keep on going and going for god knows how long you lost track of time is it days months hours or minutes you dont know it seems like your going in cirlces do you contunie   (answer should be yes or no) ")        
                     
                     if y.startswith('no'):
                        
@@ -180,7 +235,7 @@ class Game:
                    
                     elif y.startswith('yes'):
                         
-                        z = input("in your never ending journey and seeming for going in circles for god knows how long you lost track of the concept of time you decide your are tired and decide wether or not you should rest do you keep going yes or no ")
+                        z = input("in your never ending journey and seeming for going in circles for god knows how long you lost track of the concept of time you decide your are tired and decide wether or not you should rest do you keep going   (answer should be yes or no) ")
                         
                         if z.startswith('yes'):
                            
@@ -188,9 +243,10 @@ class Game:
                             
                             print('in the end you decide to keep going but you felt more and more tired by the second then out of nowhere you see a light shinning on you telling you come join me you were hallucinating  in the end you collapsed and died your body was never found to this day ')
                         
-                            print(self.score)
+                            print(sum(self.score))
 
-                            quit
+                            exit()
+                        
                         elif z.startswith('no'):
                            
                             x = input('you decide to find a place to rest and you keep going and you get very tired do you keep looking or just sit on the floor ')
@@ -199,11 +255,11 @@ class Game:
                                
                                
                                 
-                                print('well you keep going being the germaphobe you are now and disgusted on the flor ou keep going good job in the end you pass out and die how eciting')
+                                print('well you keep going being the germaphobe you are now and disgusted on the flor ou keep going good job in the end you pass out and die how exciting')
                                 
-                                print(self.score)
+                                print(sum(self.score))
 
-                                quit
+                                exit()
                             
                             elif x.startswith('sit') :
                                
@@ -221,17 +277,17 @@ class Game:
                                            
                                             print('you decide to keep going and the adrenaline wears and you collapse on the floor and never wake up boo hoo you died what did you expect when you overstress for a tired body')
 
-                                            print(self.score)
+                                            print(sum(self.score))
 
-                                            quit
+                                            exit()
                                         
                                         elif P.startswith('continue resting'):
                                             
                                             print('you decide to sit down and keep ressting and then you see a light you can escape you finally can getout as you approach the light you have a warm feeling in your heart and you get happier and happier until it all turns to black  ')
                                             
-                                            print(self.score)
+                                            print(sum(self.score))
 
-                                            quit
+                                            exit()
                                    
                                     elif T.startswith('investigate'):
                                         
@@ -241,9 +297,9 @@ class Game:
                                            
                                             print('you decide to start right away and keep digiing with your hand and the whole gets bigger and bigger and you see its night out how long has it been it doesnt matter for now freedomn is right here until you feel something weird and then a sharp stinging pain on your right hand and it hurt you take it out and see scorpions crawl out and next thing you know you fall on the ground and nothing else for it all turned to black')
                                       
-                                            print(self.score)
+                                            print(sum(self.score))
 
-                                            quit
+                                            exit()
                                         
                                         elif Q.startswith('look for a tool'):
                                            
@@ -253,9 +309,9 @@ class Game:
 
                                                 print('you decide to take the shove and you start digging then after a few rounds the shovl snaps in half and venemous spiders start crawling out of it guess it is a bad day to have arachnaphobia ')
                                                 
-                                                print(self.score)
+                                                print(sum(self.score))
 
-                                                quit
+                                                exit()
                                             
                                             elif U.startswith('bone'):
                                                
@@ -275,31 +331,31 @@ class Game:
                                                 
                                                 print('you try to scream for help your finally out now but then after a few minutes nothing happens so you stop until you notice movement you get excited but then its gets closer and closer and you see its a large snake but luckily you were quick enough to pull out your pistol and shoot it who knew you would have a use for that pistol you found  but shortly after you hear people screaming and running towards you yay your rescued you get found by the locals and they were able to get an exicvator to get you out next thing you know your all over the news man isnt egypt just great')
                                             
-                                                print(self.score)
+                                                print(sum(self.score))
                                                
-                                                quit
+                                                exit()
                                             
                                             else :
                                                 print(' you try to scream for help your finally out now but then after a few minutes nothing happens so you stop until you notice movement you get excited but then its gets closer and closer and you see its a large snake what did you expect in a dessert') 
                                                 
-                                                print(self.score)
+                                                print(sum(self.score))
                                                
-                                                quit
+                                                exit()
                                         elif M.startswith('cut'):
 
                                             if sharpweapons in inventory :
 
                                                 print('you try to cut your leg off with the sharpweaposn you found in the pyramid and you do succsefully you then run off into civlization where the people see you and approach you when they see what happend they rush to a hospital your saved yay too bad theres no insurance for you in egypt ')
                                                 
-                                                print(self.score)
+                                                print(sum(self.score))
                                                
-                                                quit
+                                                exit()
                                             else :
                                                 print('you tried to cut your leg off but nothing really worked  so you just sit there hopelessly and think over your life and the actions you have done what a life you say as you die of a heat stroke buit finnaly at peace with yourself')
 
-                                                print(self.score)
+                                                print(sum(self.score))
                                                
-                                                quit
+                                                exit()
                                         elif B.startswith('look'):
                                            
                                             qw = input('you decide to  look for a tool for god knows how long and then you find two things an axe and a mace which do you choose')
@@ -308,9 +364,9 @@ class Game:
                                                
                                                 print('you decide to take an axe and make a hole with it and you start choppingg out a rectangle big enough for you and it works you climb out  and start running to a town you see in the distance you make it there and the locals see you and welcome you thank god your saved ')
 
-                                                print(self.score)
+                                                print(sum(self.score))
 
-                                                quit
+                                                exit()
                                            
                                             elif qw.startswith('mace') :
                                                
@@ -321,13 +377,12 @@ class Game:
              
              print("as time goes by and by and you cant find your exit  you decide to give up on life and wait until sarvation or the monsters get you in the end you died 2 years later your body is found heavily deformed but somehow your flesh didnt rot or decay. how??? that is a mystery for another day ")      
 
-             print(self.score) 
+             print(sum(self.score)) 
 
-             quit
-            
+             exit()
             else:
-               
-                print("thats not a command habibi")
+                print('thats not a command habibi')
+
     
 game = Game()
 game.setup_game()
