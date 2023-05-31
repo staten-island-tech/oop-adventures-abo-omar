@@ -138,6 +138,29 @@ class Game:
                
                 inventory.append (self.current_room.items)
            
+            elif action.startswith('interact'):
+             
+             if self.current_room == room2:
+                
+                print('you decide to call out who ever is here since you sensed movement and a mummy approaches you and attacks you minus 5 points')
+
+                self.score.__add__('-5')
+           
+            if self.current_room == room2: 
+             
+             if sharpweapons in inventory:
+                 
+                 print('you decide to call out who ever is here since you sensed movement and a mummy approaches you and attacks you  but you fight back with youyr weapons and slash it and it dies good job plus 5 points ')
+                
+                 self.score.__add__('5')
+            
+            if self.current_room == room3:
+                
+                print('you decide to see what was moving in the queens chamber you try to find a light source but it doesnt workand then you hear her behind you its queen ice spice before you know she said you thought i was feeling you and immedialty killed you rip')
+
+                print(self.score)
+
+                quit
             
             elif action.startswith('room6'):
                
@@ -285,16 +308,26 @@ class Game:
                                                
                                                 print('you decide to take an axe and make a hole with it and you start choppingg out a rectangle big enough for you and it works you climb out  and start running to a town you see in the distance you make it there and the locals see you and welcome you thank god your saved ')
 
-                                            elif    
-                                            
+                                                print(self.score)
 
+                                                quit
+                                           
+                                            elif qw.startswith('mace') :
+                                               
+                                                print(' you decide to take the mace to blow a bigger hole through and as you try you realize how do I use a mace so you swing to try and figure it out but you miss the wall entirley and it spins back and hits your face good job I hope your are proud of yourself ')
+                                            
+                                        
             elif action.startswith('quit') :
              
              print("as time goes by and by and you cant find your exit  you decide to give up on life and wait until sarvation or the monsters get you in the end you died 2 years later your body is found heavily deformed but somehow your flesh didnt rot or decay. how??? that is a mystery for another day ")      
+
+             print(self.score) 
+
+             quit
             
             else:
                
-                print("you broke it habibi thats not good")
+                print("thats not a command habibi")
     
 game = Game()
 game.setup_game()
