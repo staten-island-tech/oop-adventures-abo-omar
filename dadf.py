@@ -45,7 +45,27 @@ class Character:
        
         return self.name
 
+class ScoreSystem:
+    
+    def __init__(self):
+        
+        self.score = 0
 
+    def increase_score(self, points):
+        
+        self.score += points
+
+    def decrease_score(self, points):
+        
+        self.score -= points
+
+    def reset_score(self):
+       
+        self.score = 0
+
+    def get_score(self):
+       
+        return self.score
 
 
 
@@ -53,21 +73,21 @@ class Character:
 
 class Game:
    
-    def __init__(self):
+   
        
-        self.score = [0]
+    
         
-        self.current_room=None
+ 
 
-    def start(self):
-        
-        print("welcome to the pyramid of giza habibi ")
+   
        
         
 
     
     def setup_game(self):
-        
+
+        score_system = ScoreSystem()
+
         # Initialize rooms
        
         room1 = Room("starting room", "its a starting room.", )
@@ -88,15 +108,14 @@ class Game:
         inventory=[]
         sharpweapons=[[Item("Khanjar", "its a curved arab sword .", 25)] , [Item("psychte", "its a psychte .", 25)]]
 
-        print("welcome to the pyramid of giza habibi ")
+       
         
-        print("\nYou are in the", self.current_room.name)
-           
+        print("\nwelcome to the pyramid of giza habibi  You are in the", self.current_room.name)
         print(self.current_room.description)
-           
-        print(self.current_room.items)
-        
-        print(sum(self.score))
+        print('there are no items in this room')
+        print(score_system.get_score())
+
+       
 
         #start game loop  
        
@@ -108,7 +127,7 @@ class Game:
             
             if action == 'help' :
                
-                print("thats OK , there are multiple commands 1. look 2. inventory 3. to go to any room type the room number ex:room3  4. take 5. interact 6. exit()")
+                print("thats OK , there are multiple commands 1. look 2. inventory 3. to go to any room type the room number ex:room3  4. take 5. interact 6. quit")
            
             elif action == 'look' :
                 
@@ -152,30 +171,64 @@ class Game:
             elif action.startswith('take'):
                  
                 if self.current_room == room2 : 
+                    
+                    if 'pistol' not in inventory:
 
-                 print('you found a british short pistol ')
+                        print('you found a british short pistol ')
                
-                 inventory.append ('pistol')
+                        inventory.append ('pistol')
+                        
+                        score_system.increase_score(20)
+                    
+                    elif 'pistol' in inventory:
+                        
+                        print('you already took the items here')
 
-                if self.current_room == room3 : 
+                elif self.current_room == room3 : 
+                 
+                    if 'candle' not in inventory:
 
-                 print('you found a khanjar and an ancient candle ')
+                        print('you found a psychte and an ancient candle ')
                
-                 inventory.append ('khanjar')
+                        inventory.append ('psychte')
 
-                 inventory.append('candle')
+                        inventory.append('candle')
+                        
+                        score_system.increase_score(27)
 
-                if self.current_room == room4 : 
+                        
+                    
+                    elif 'candle' in inventory:
+                       
+                        print('you already took the items here')
 
-                 print('you found a psychte ')
+                elif self.current_room == room4 : 
+                 
+                    if 'khanjar' not in inventory:
+
+                        print('you found a psychte and some golden artifacts')
                
-                 inventory.append ('psychte')
+                        inventory.append ('khanjar')
+
+                        inventory.append('golden artifacts')
+                        
+                        score_system.increase_score(45)
+                    
+                    elif 'khanjar' in inventory:
+                       
+                        print('you already took the items here')
                 
-                if self.current_room == room5 : 
+                elif self.current_room == room5 : 
 
                  print('you found omars mentall abillity to think yay your 5 now ')
                
                  inventory.append ('omars mental abillity')
+
+                 score_system.increase_score(1)
+               
+                else:
+                   
+                    print('there are no items in this room')
            
             elif action.startswith('interact'):
              
@@ -189,18 +242,21 @@ class Game:
                  
                         print('you decide to call out who ever is here since you sensed movement and a mummy approaches you and attacks you  but you fight back with youyr weapons and slash it and it dies good job plus 5 points ')
                 
-                        self.score.append('5')
+                        score_system.increase_score(5)
+                 
                  elif 'khanjar' in inventory:
                  
                         print('you decide to call out who ever is here since you sensed movement and a mummy approaches you and attacks you  but you fight back with youyr weapons and slash it and it dies good job plus 5 points ')
                 
-                        self.score.append('5')
+                        score_system.increase_score(5)
 
 
                  else:
                      print('you decide to call out who ever is here since you sensed movement and a mummy approaches you and attacks you minus 5 points')
 
-                     self.score.append('-5')
+                     score_system.decrease_score(5)
+
+                     
 
             
                 
@@ -215,14 +271,14 @@ class Game:
                    
                     print('you decide to see what was moving in the queens chamber you try to find a light source but it doesnt workand then you hear her behind you its queen ice spice before you know she said you thought I was feeling you but you were quick to react and shot her guess you werent feeling her eithier +20 points')
 
-                    self.score.append('20')
+                    score_system.increase_score(20)
                  
                  else:
                         print('you decide to see what was moving in the queens chamber you try to find a light source but it doesnt workand then you hear her behind you its queen ice spice before you know she said you thought i was feeling you and she kicks you out -10 points')
 
-                        self.score.append('-10')
-                        
-                        print(self.score)
+                        score_system.decrease_score(20)
+
+                        print(score_system.get_score())
 
                         
 
@@ -249,7 +305,7 @@ class Game:
                     
                     print("as time goes by and by and you cant find your exit  you decide to give up on life and wait until sarvation or the monsters get you in the end you died 2 years later your body is found heavily deformed but somehow your flesh didnt rot or decay. how??? that is a mystery for another day ")
 
-                    print(sum(self.score))
+                    print(score_system.get_score())
 
                     exit()
                 
@@ -271,7 +327,7 @@ class Game:
                             
                             print('in the end you decide to keep going but you felt more and more tired by the second then out of nowhere you see a light shinning on you telling you come join me you were hallucinating  in the end you collapsed and died your body was never found to this day ')
                         
-                            print(sum(self.score))
+                            print(score_system.get_score())
 
                             exit()
                         
@@ -285,7 +341,7 @@ class Game:
                                 
                                 print('well you keep going being the germaphobe you are now and disgusted on the flor ou keep going good job in the end you pass out and die how exciting')
                                 
-                                print(sum(self.score))
+                                print(score_system.get_score())
 
                                 exit()
                             
@@ -305,7 +361,7 @@ class Game:
                                            
                                             print('you decide to keep going and the adrenaline wears and you collapse on the floor and never wake up boo hoo you died what did you expect when you overstress for a tired body')
 
-                                            print(sum(self.score))
+                                            print(score_system.get_score())
 
                                             exit()
                                         
@@ -313,7 +369,7 @@ class Game:
                                             
                                             print('you decide to sit down and keep ressting and then you see a light you can escape you finally can getout as you approach the light you have a warm feeling in your heart and you get happier and happier until it all turns to black  ')
                                             
-                                            print(sum(self.score))
+                                            print(score_system.get_score())
 
                                             exit()
                                    
@@ -325,7 +381,7 @@ class Game:
                                            
                                             print('you decide to start right away and keep digiing with your hand and the whole gets bigger and bigger and you see its night out how long has it been it doesnt matter for now freedomn is right here until you feel something weird and then a sharp stinging pain on your right hand and it hurt you take it out and see scorpions crawl out and next thing you know you fall on the ground and nothing else for it all turned to black')
                                       
-                                            print(sum(self.score))
+                                            print(score_system.get_score())
 
                                             exit()
                                         
@@ -337,7 +393,7 @@ class Game:
 
                                                 print('you decide to take the shove and you start digging then after a few rounds the shovl snaps in half and venemous spiders start crawling out of it guess it is a bad day to have arachnaphobia ')
                                                 
-                                                print(sum(self.score))
+                                                print(score_system.get_score())
 
                                                 exit()
                                             
@@ -359,14 +415,14 @@ class Game:
                                                 
                                                 print('you try to scream for help your finally out now but then after a few minutes nothing happens so you stop until you notice movement you get excited but then its gets closer and closer and you see its a large snake but luckily you were quick enough to pull out your pistol and shoot it who knew you would have a use for that pistol you found  but shortly after you hear people screaming and running towards you yay your rescued you get found by the locals and they were able to get an exicvator to get you out next thing you know your all over the news man isnt egypt just great')
                                             
-                                                print(sum(self.score))
+                                                print(score_system.get_score())
                                                
                                                 exit()
                                             
                                             else :
                                                 print(' you try to scream for help your finally out now but then after a few minutes nothing happens so you stop until you notice movement you get excited but then its gets closer and closer and you see its a large snake what did you expect in a dessert') 
                                                 
-                                                print(sum(self.score))
+                                                print(score_system.get_score())
                                                
                                                 exit()
                                         elif M.startswith('cut'):
@@ -375,15 +431,16 @@ class Game:
 
                                                 print('you try to cut your leg off with the khanjar you found in the pyramid and you do succsefully you then run off into civlization where the people see you and approach you when they see what happend they rush to a hospital your saved yay too bad theres no insurance for you in egypt ')
                                                 
-                                                print(sum(self.score))
+                                                print(score_system.get_score())
                                                
                                                 exit()
                                             if 'khanjar' not in inventory :
                                                 print('you tried to cut your leg off but nothing really worked  so you just sit there hopelessly and think over your life and the actions you have done what a life you say as you die of a heat stroke buit finnaly at peace with yourself')
 
-                                                print(sum(self.score))
+                                                print(score_system.get_score())
                                                
                                                 exit()
+                                        
                                         elif B.startswith('look'):
                                            
                                             qw = input('you decide to  look for a tool for god knows how long and then you find two things an axe and a mace which do you choose')
@@ -392,7 +449,7 @@ class Game:
                                                
                                                 print('you decide to take an axe and make a hole with it and you start choppingg out a rectangle big enough for you and it works you climb out  and start running to a town you see in the distance you make it there and the locals see you and welcome you thank god your saved ')
 
-                                                print(sum(self.score))
+                                                print(score_system.get_score())
 
                                                 exit()
                                            
@@ -405,7 +462,7 @@ class Game:
              
              print("as time goes by and by and you cant find your exit  you decide to give up on life and wait until sarvation or the monsters get you in the end you died 2 years later your body is found heavily deformed but somehow your flesh didnt rot or decay. how??? that is a mystery for another day ")      
 
-             print(sum(self.score)) 
+             print(score_system.get_score()) 
 
              exit()
             else:
