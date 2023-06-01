@@ -347,7 +347,7 @@ class Game:
                             
                             elif x.startswith('sit') :
                                
-                                L = input('you decide to sit down at the wall  an drest for a bit butt as sit down and put your back on the wall you felt the  wall move a bit and then you feel the ground shake what do you do investiagte or keep resting  ')
+                                L = input('you decide to sit down at the wall  and rest for a bit but as you sit down and put your back on the wall you felt the  wall move a bit and then  feel the ground shake what do you do investiagte or keep resting  ')
                                
                                 if L.startswith('keep resting'):
                                    
@@ -403,11 +403,11 @@ class Game:
 
                                 elif L.startswith('investigate'):
                                     
-                                    B = input('you decide to get up and ivestigate and in it you find a hidden room that you uncovered by accident you go in it and you see light yay your saved now do you dig a hole with your hands or look for a tool')
+                                    B = input('you decide to get up and ivestigate and you find a hidden room that you uncovered by accident you go in it and you see light yay your saved now do you dig a hole with your hands or look for a tool')
 
                                     if B.startswith('hands'):
 
-                                        M = input(' you decide to go in as quikly as possible and dig a hole out of your hands and your jand gets bigger and bigger you start crawling out and as you leave everything collapses on your foot what do you do try to cut it out or scream for help')
+                                        M = input(' you decide to go in as quikly as possible and dig a hole out of your hands and your and as the hole gets bigger and bigger you start crawling out and as you leave everything collapses on your foot what do you do try to cut it out or scream for help')
 
                                         if M.startswith('scream'):
                                             
@@ -420,7 +420,7 @@ class Game:
                                                 exit()
                                             
                                             else :
-                                                print(' you try to scream for help your finally out now but then after a few minutes nothing happens so you stop until you notice movement you get excited but then its gets closer and closer and you see its a large snake what did you expect in a dessert') 
+                                                print('you try to scream for help your finally out now but then after a few minutes nothing happens so you stop until you notice movement you get excited but then its gets closer and closer and you see its a large snake what did you expect in a dessert') 
                                                 
                                                 print(score_system.get_score())
                                                
