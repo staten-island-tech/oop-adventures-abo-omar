@@ -150,10 +150,32 @@ class Game:
            
            
             elif action.startswith('take'):
+                 
+                if self.current_room == room2 : 
 
-                print('\nyou found a/an',self.current_room.items)
+                 print('you found a british short pistol ')
                
-                inventory.append (self.current_room.items)
+                 inventory.append ('pistol')
+
+                if self.current_room == room3 : 
+
+                 print('you found a khanjar and an ancient candle ')
+               
+                 inventory.append ('khanjar')
+
+                 inventory.append('candle')
+
+                if self.current_room == room4 : 
+
+                 print('you found a psychte ')
+               
+                 inventory.append ('psychte')
+                
+                if self.current_room == room5 : 
+
+                 print('you found omars mentall abillity to think yay your 5 now ')
+               
+                 inventory.append ('omars mental abillity')
            
             elif action.startswith('interact'):
              
@@ -163,11 +185,17 @@ class Game:
            
                 if self.current_room == room2: 
              
-                 if [Item("Khanjar", "its a curved arab sword .", 25)] in inventory:
+                 if 'psychte' in inventory:
                  
                         print('you decide to call out who ever is here since you sensed movement and a mummy approaches you and attacks you  but you fight back with youyr weapons and slash it and it dies good job plus 5 points ')
                 
                         self.score.append('5')
+                 elif 'khanjar' in inventory:
+                 
+                        print('you decide to call out who ever is here since you sensed movement and a mummy approaches you and attacks you  but you fight back with youyr weapons and slash it and it dies good job plus 5 points ')
+                
+                        self.score.append('5')
+
 
                  else:
                      print('you decide to call out who ever is here since you sensed movement and a mummy approaches you and attacks you minus 5 points')
@@ -183,7 +211,7 @@ class Game:
             
                 if self.current_room == room3:
                
-                 if pistol in inventory:
+                 if 'pistol' in inventory:
                    
                     print('you decide to see what was moving in the queens chamber you try to find a light source but it doesnt workand then you hear her behind you its queen ice spice before you know she said you thought I was feeling you but you were quick to react and shot her guess you werent feeling her eithier +20 points')
 
@@ -273,7 +301,7 @@ class Game:
                                         
                                         P = input('you start running as fast as you can and the voice is still getting louder but after a few moments its starts fading away and you think its gone now so you stand for a bit and take your breath what do you do next contunie resting or keep exploring')
                                         
-                                        if P.startswith('Keep exploring'):
+                                        if P.startswith('keep exploring'):
                                            
                                             print('you decide to keep going and the adrenaline wears and you collapse on the floor and never wake up boo hoo you died what did you expect when you overstress for a tired body')
 
@@ -327,7 +355,7 @@ class Game:
 
                                         if M.startswith('scream'):
                                             
-                                            if pistol in inventory:
+                                            if 'pistol' in inventory:
                                                 
                                                 print('you try to scream for help your finally out now but then after a few minutes nothing happens so you stop until you notice movement you get excited but then its gets closer and closer and you see its a large snake but luckily you were quick enough to pull out your pistol and shoot it who knew you would have a use for that pistol you found  but shortly after you hear people screaming and running towards you yay your rescued you get found by the locals and they were able to get an exicvator to get you out next thing you know your all over the news man isnt egypt just great')
                                             
@@ -343,14 +371,14 @@ class Game:
                                                 exit()
                                         elif M.startswith('cut'):
 
-                                            if sharpweapons in inventory :
+                                            if 'khanjar' in inventory :
 
-                                                print('you try to cut your leg off with the sharpweaposn you found in the pyramid and you do succsefully you then run off into civlization where the people see you and approach you when they see what happend they rush to a hospital your saved yay too bad theres no insurance for you in egypt ')
+                                                print('you try to cut your leg off with the khanjar you found in the pyramid and you do succsefully you then run off into civlization where the people see you and approach you when they see what happend they rush to a hospital your saved yay too bad theres no insurance for you in egypt ')
                                                 
                                                 print(sum(self.score))
                                                
                                                 exit()
-                                            else :
+                                            if 'khanjar' not in inventory :
                                                 print('you tried to cut your leg off but nothing really worked  so you just sit there hopelessly and think over your life and the actions you have done what a life you say as you die of a heat stroke buit finnaly at peace with yourself')
 
                                                 print(sum(self.score))
