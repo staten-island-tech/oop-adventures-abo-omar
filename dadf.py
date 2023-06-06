@@ -22,6 +22,7 @@ class Item:
         
         self.description = description
         
+        
         self.point_value = point_value
 
     
