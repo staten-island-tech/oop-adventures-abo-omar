@@ -1,3 +1,4 @@
+
 class Room:
     
     def __init__(self, name, description, items=None, tems=None):
@@ -12,7 +13,6 @@ class Room:
     def __str__(self):
       
         return self.name
-
 
 class Item:
    
@@ -29,7 +29,6 @@ class Item:
     def __str__(self):
         
         return self.name
-
 
 class Character:
   
@@ -100,14 +99,17 @@ class Game:
         room4 = Room("King tuts grave", "its king tuts grave but unlike his queen this guy is maybe dead but his riches aint .", [Item("Khanjar", "its a curved arab sword .", 25)] ,  [Item("Gold", "you fou  nd them riches .", 20)])
         
         room5 = Room("omars proof of work room","its a room to show omars proof of work. good job omar",[Item("Omars mental abiility ", " congratulations you can think like a 5 year old now hope you like it .", 1)])
-       
+        
+        room3.items.append(Character("queen ice spice", "you thought she was feeling you????.", -20))
+
+        room2.items.append(Character("mummy", "he came back from the dead just for you", -5))
         
 
         
         self.current_room = room1
-        pistol=[[Item("british short pistol", "An old british pistol probably left from an expedition during the early 1900s.", 20)]]
+        
         inventory=[]
-        sharpweapons=[[Item("Khanjar", "its a curved arab sword .", 25)] , [Item("psychte", "its a psychte .", 25)]]
+        
 
        
         
