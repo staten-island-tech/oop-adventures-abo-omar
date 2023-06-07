@@ -1,71 +1,10 @@
+from rooms import Room
 
-class Room:
-    
-    def __init__(self, name, description, items=None, tems=None):
-        
-        self.name = name
-        
-        self.description = description
-       
-        self.items = items or [] or tems
+from items import Item
 
-    
-    def __str__(self):
-      
-        return self.name
+from character import Character
 
-class Item:
-   
-    def __init__(self, name, description, point_value):
-       
-        self.name = name
-        
-        self.description = description
-        
-        
-        self.point_value = point_value
-
-    
-    def __str__(self):
-        
-        return self.name
-
-class Character:
-  
-    def __init__(self, name, description, point_value):
-       
-        self.name = name
-        
-        self.description = description
-       
-        self.point_value = point_value
-
-    
-    def __str__(self):
-       
-        return self.name
-
-class ScoreSystem:
-    
-    def __init__(self):
-        
-        self.score = 0
-
-    def increase_score(self, points):
-        
-        self.score += points
-
-    def decrease_score(self, points):
-        
-        self.score -= points
-
-    def reset_score(self):
-       
-        self.score = 0
-
-    def get_score(self):
-       
-        return self.score
+from Scoresystem import ScoreSystem
 
 
 
